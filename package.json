@@ -21,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/kpreilly/expressinit/issues"
   },
-  "homepage": "https://github.com/kpreilly/expressinit#readme"
+  "homepage": "https://github.com/kpreilly/expressinit#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "handlebars": "^4.1.0",
+    "sessions": "0.0.2-7"
+  }
 }
