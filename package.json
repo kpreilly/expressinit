@@ -23,8 +23,10 @@
   },
   "homepage": "https://github.com/kpreilly/expressinit#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "express-session": "^1.15.6",
     "handlebars": "^4.1.0",
-    "sessions": "0.0.2-7"
+    "mysql": "^2.16.0"
   }
 }
