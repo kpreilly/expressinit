@@ -1,0 +1,25 @@
+{
+  "name": "expressinit",
+  "version": "1.0.0",
+  "description": "learning express for OSU CS 290",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kpreilly/expressinit.git"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "javascript",
+    "introduction"
+  ],
+  "author": "Kyle Reilly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kpreilly/expressinit/issues"
+  },
+  "homepage": "https://github.com/kpreilly/expressinit#readme"
+}
