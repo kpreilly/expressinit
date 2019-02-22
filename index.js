@@ -11,12 +11,12 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 60001);
 
-app.get('/', function (req, res) {
-    context = {title:'Home Page',randNum:randomNum()}
-    res.render('home',context) 
-});
+// app.get('/', function (req, res) {
+//     context = {title:'Home Page',randNum:randomNum()}
+//     res.render('home',context) 
+// });
 
-app.get('/res',function(req,res){
+app.get('/',function(req,res){
     qParams = []
     for (q in req.query) {
         qParams.push({'name':q,'value':req.query[q]})
@@ -27,7 +27,7 @@ app.get('/res',function(req,res){
     res.render('res',context)
 })
 
-app.post('/res', function(req,res){
+app.post('/', function(req,res){
     var bParams = [];
     var qParams = [];
     var context = {};
