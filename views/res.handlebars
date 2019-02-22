@@ -1,6 +1,23 @@
 <h1>{{resType}} Request Received</h1>
+
+{{#if qParams}}
+<div>
+<h2>Query Content</h2>
 <ul>
-  {{#each dataList}}
-    <li>{{this.name}}: {{this.value}}
+  {{#each qParams}}
+  <li>{{this.name}}: {{this.value}}
+    {{/each}}
+</ul>
+</div>
+{{/if}}
+
+{{#if bParams}}
+<div>
+<h2>Body Content</h2>
+<ul>
+  {{#each bParams}}
+  <li>{{this.name}}: {{this.value}}</li>
   {{/each}}
 </ul>
+</div>
+{{/if}}

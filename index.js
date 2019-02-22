@@ -9,7 +9,7 @@ app.use(bodyParser.json())
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
-app.set('port', 3000);
+app.set('port', 60001);
 
 app.get('/', function (req, res) {
     context = {title:'Home Page',randNum:randomNum()}
@@ -18,25 +18,28 @@ app.get('/', function (req, res) {
 
 app.get('/res',function(req,res){
     qParams = []
-    for (p in req.query) {
-        qParams.push({'name':p,'value':req.query[p]})
+    for (q in req.query) {
+        qParams.push({'name':q,'value':req.query[q]})
     }
     context = {}
     context.resType = 'GET'
-    context.dataList = qParams
+    context.qParams = qParams
     res.render('res',context)
 })
 
 app.post('/res', function(req,res){
+    var bParams = [];
     var qParams = [];
-    for (var p in req.body){
-      qParams.push({'name':p,'value':req.body[p]})
-    }
-    console.log(qParams);
-    console.log(req.body);
     var context = {};
     context.resType = 'POST'
-    context.dataList = qParams;
+    for (var b in req.body){
+      bParams.push({'name':b,'value':req.body[b]})
+    }
+    context.bParams = bParams
+    for (var q in req.query) {
+        qParams.push({'name':q,'value':req.query[q]})
+    }
+    context.qParams = qParams
     res.render('res', context);
   });
 
