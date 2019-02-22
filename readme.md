@@ -1,3 +1,3 @@
 # expressinit
 
-Learning about express with Oregon State University CS 290
+Learning about express and express-handlebars with Oregon State University CS 290
