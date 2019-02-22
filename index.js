@@ -2,19 +2,43 @@ var express = require('express');
 
 var app = express();
 var handlebars = require('express-handlebars').create({ defaultLayout: 'main' });
+var bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
 app.get('/', function (req, res) {
-    num = randomNum()
-    res.render('home',{title:"Home Page",randNum:num}) 
+    context = {title:'Home Page',randNum:randomNum()}
+    res.render('home',context) 
 });
 
-app.get('/other-page', function (req, res) {
-    res.render('other-page',{title:'Another Page'});
-});
+app.get('/res',function(req,res){
+    qParams = []
+    for (p in req.query) {
+        qParams.push({'name':p,'value':req.query[p]})
+    }
+    context = {}
+    context.resType = 'GET'
+    context.dataList = qParams
+    res.render('res',context)
+})
+
+app.post('/res', function(req,res){
+    var qParams = [];
+    for (var p in req.body){
+      qParams.push({'name':p,'value':req.body[p]})
+    }
+    console.log(qParams);
+    console.log(req.body);
+    var context = {};
+    context.resType = 'POST'
+    context.dataList = qParams;
+    res.render('res', context);
+  });
 
 app.use(function (req, res) {
     res.status(404);
